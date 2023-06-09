@@ -7,10 +7,10 @@ ll y = (pow(10,9) + 7);
 
 
 void solve(){
-    ll n,k;
+    int n,k;
     cin>>n>>k;
-    int a = log2(n);
-    cout<<"a = "<<a<<endl;
+    int t = min(30,k);
+    cout<<min(n+1,1<<t)<<endl;
 }
 
 int main(){
