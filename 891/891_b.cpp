@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-
+#include <string>
 using namespace std;
 
 #define ll long long
@@ -13,22 +13,33 @@ int findRoot(int a,int b,int c){
 }
 
 void solve(){
-    vector<int>x;
-    for(int i = 0; i <pow(10,5);i++){
-        int a =0;
-        cin>>a;
-        x.push_back(a);
+    string s,b,m;
+    cin>>s;
+    int n = s.length();
+            int t = 0;
+    for(int i=0;i<n;i++){
+        if(s[i]>='5'){
+            t =1;
+            for(int j=i;j>=0;j--){
+                int k = (s[j] -'0') + t;
+                if(k>=5){
+                    s[j] = '0';
+                }
+                else {
+                    s[j] = ((s[j] -'0') + t) + '0';
+                    t =0;
+                }
+            }
+            for(int j=i+1;j<n;j++){
+                s[j] = '0';
+            }
+            i =n;
+        }
     }
-    vector<int> v;
-    int s =0;
-    
-    if(s==1) v.push_back(s);
-    for(int i=v.size()-1; i>=0; i--){
-        cout<<v[i];
-    }
-    cout<<endl;
+    if(t) b +=('1' + s);
+    else b +=s;
+    cout << b <<endl;
 }
-
 
 int main(){
     int t;
