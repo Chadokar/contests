@@ -16,24 +16,22 @@ void solve(){
     string s,b,m;
     cin>>s;
     int n = s.length();
-            int t = 0;
-    for(int i=0;i<n;i++){
+    int t = 0,i=0;
+    for( i=0;i<n;i++){
         if(s[i]>='5'){
             t =1;
-            for(int j=i;j>=0;j--){
-                int k = (s[j] -'0') + t;
-                if(k>=5){
-                    s[j] = '0';
-                }
-                else {
-                    s[j] = ((s[j] -'0') + t) + '0';
-                    t =0;
-                }
-            }
-            for(int j=i+1;j<n;j++){
-                s[j] = '0';
-            }
-            i =n;
+            break;
+        }
+    }
+    for(int j=i;j>=0;j--){
+        int k = (s[j] -'0') + t;
+        if(k>=5){
+            s[j] = '0';
+        }
+        else {
+            s[j] = ((s[j] -'0') + t) + '0';
+            t =0;
+            break;
         }
     }
     if(t) b +=('1' + s);
