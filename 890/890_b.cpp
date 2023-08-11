@@ -11,17 +11,26 @@ void solve(){
     int n;
     ll s=0;
     cin>>n;
-    vector<int> v;
-    bool b = false;
+    vector<ll> v;
     for(int i=0;i<n;i++){
-        int a;cin>>a;
+        ll a;cin>>a;
         v.push_back(a);
-        s+=a;
-        if(a>n) b = true;
     }
-    
-    int r = (n/2)*2 + (n-(n/2));
-    if((s>r || (s>=r && n%2 ==0) || b) && n!=1)cout<<"YES"<<endl;
+    if(n ==1) {
+        cout<<"NO"<<endl;
+        return;
+    }
+    ll t =0;
+    for(int i=0;i<n;i++){
+        if(v[i]==1){
+            t++;
+        }
+        else {
+            t = t-v[i] +1;
+        }
+        // cout<<"t = "<<t<<endl;
+    }
+    if(t<=0) cout<<"YES"<<endl;
     else cout<<"NO"<<endl;
 }
 
